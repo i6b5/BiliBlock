@@ -1,0 +1,177 @@
+/* =========================================================
+   B站卡片净化器 - 内容样式
+   ========================================================= */
+
+/* 确保目标卡片具有定位上下文 */
+.bili-video-card,
+.feed-card,
+.video-page-card-small,
+.video-item {
+  position: relative !important;
+}
+
+/* ================== 激进模式样式 ================== */
+/* 彻底隐藏最外层网格单元，位置完全让出给后方的视频，网格自动向前无缝填补 */
+.bili-blocker-aggressive-hide {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* ================== 普通模式样式 (黑色卡片占位) ================== */
+/* 隐藏原有视频内容但保留尺寸支撑，彻底杜绝高度变化与排版塌陷 */
+.bili-blocker-masked {
+  visibility: hidden !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+/* 黑色空白卡片 - 绝对定位原位覆盖，1:1 完全继承原卡片宽高与圆角 */
+.bili-blocker-card {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 30 !important;
+  box-sizing: border-box !important;
+  background-color: #121316 !important;
+  border: 1px solid #23252a !important;
+  border-radius: 8px !important;
+  padding: 12px 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  color: #61666d !important;
+  user-select: none !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  transition: border-color 0.2s ease, background-color 0.2s ease !important;
+}
+
+/* 当处于临时查看状态时，必须隐藏遮蔽卡片 */
+.bili-blocker-card.bili-blocker-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
+/* 鼠标悬停轻微亮起 */
+.bili-blocker-card:hover {
+  border-color: #383b42 !important;
+  background-color: #16171b !important;
+}
+
+/* 盾牌屏蔽图标 */
+.bili-blocker-icon {
+  width: 24px !important;
+  height: 24px !important;
+  margin-bottom: 6px !important;
+  color: #50545c !important;
+  flex-shrink: 0 !important;
+  transition: transform 0.2s ease, color 0.2s ease !important;
+  pointer-events: none !important;
+}
+
+.bili-blocker-card:hover .bili-blocker-icon {
+  color: #858a94 !important;
+  transform: scale(1.06) !important;
+}
+
+/* 屏蔽主标题 */
+.bili-blocker-title {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #858a94 !important;
+  line-height: 1.3 !important;
+  margin: 0 0 3px 0 !important;
+  flex-shrink: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 屏蔽命中原因 */
+.bili-blocker-reason {
+  font-size: 11px !important;
+  color: #61666d !important;
+  line-height: 1.3 !important;
+  margin: 0 0 8px 0 !important;
+  max-width: 92% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  pointer-events: none !important;
+}
+
+.bili-blocker-keyword {
+  color: #00aeec !important;
+  font-weight: 600 !important;
+  background: rgba(0, 174, 236, 0.12) !important;
+  padding: 1px 4px !important;
+  border-radius: 3px !important;
+  pointer-events: none !important;
+}
+
+/* 临时查看按钮 */
+.bili-blocker-restore-btn {
+  font-size: 11px !important;
+  padding: 4px 12px !important;
+  color: #9499a0 !important;
+  background: #202227 !important;
+  border: 1px solid #33363e !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  line-height: 1.5 !important;
+  flex-shrink: 0 !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+  z-index: 50 !important;
+  pointer-events: auto !important;
+}
+
+.bili-blocker-restore-btn * {
+  pointer-events: none !important;
+}
+
+.bili-blocker-restore-btn:hover {
+  background: #00aeec !important;
+  border-color: #00aeec !important;
+  color: #ffffff !important;
+}
+
+/* 临时还原后右上角小巧的“重新屏蔽”悬浮按钮 */
+.bili-blocker-rehide-btn {
+  position: absolute !important;
+  top: 6px !important;
+  right: 6px !important;
+  z-index: 9999 !important;
+  font-size: 11px !important;
+  background: rgba(18, 19, 22, 0.88) !important;
+  color: #ff6699 !important;
+  border: 1px solid rgba(255, 102, 153, 0.45) !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+  cursor: pointer !important;
+  backdrop-filter: blur(4px) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.2s ease !important;
+  pointer-events: auto !important;
+}
+
+.bili-blocker-rehide-btn:hover {
+  background: #ff6699 !important;
+  color: #ffffff !important;
+  border-color: #ff6699 !important;
+}

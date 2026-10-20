@@ -1,0 +1,11 @@
+{
+  "version": "1.2.0",
+  "settings": {
+    "enabled": true,
+    "scope": "home",
+    "aggressive": false
+  },
+  "titleKeywords": [],
+  "exactAuthorKeywords": [],
+  "authorKeywords": []
+}
