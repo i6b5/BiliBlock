@@ -1,4 +1,4 @@
-# 哔哩哔哩 (B站) 视频卡片净化器 | BiliBlock
+# 哔哩哔哩 (B站) 视频和UP主屏蔽器 | BiliBlock
 
 一款轻量、简洁的 **B站 (bilibili) 视频卡片净化与内容过滤 Chrome / Edge 浏览器扩展**。
 
